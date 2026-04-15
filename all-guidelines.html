@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All-guidelines - Cat Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 获取所有的分类容器
+  const containers = document.querySelectorAll('.carousel-full-width');
+
+  containers.forEach(container => {
+    const track = container.querySelector('.carousel-track');
+    const leftBtn = container.querySelector('.left-arrow');
+    const rightBtn = container.querySelector('.right-arrow');
+
+    // 每次滚动的距离：一张卡片的宽度(280px) + 间距(30px)
+    const scrollStep = 310;
+
+    if (track && leftBtn && rightBtn) {
+      // 右转
+      rightBtn.onclick = function() {
+        track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      };
+
+      // 左转
+      leftBtn.onclick = function() {
+        track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+      };
+    }
+  });
+});
+</script>
+
+<body class="subpage-flat">
+  
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a href="index.html" class="topbar__logo" aria-label="Homepage">
+<a href="index.html" class="topbar__logo" aria-label="Homepage">
+  <img src="img/logo.png" alt="Cat Website Logo" class="cat-logo-png">
+</a>
+
+</a>
+
+      <button class="menu-trigger" id="menu-open" aria-label="Open Menu">
+      <img src="img/Menu icon.png" alt="Menu" class="menu-paw-icon">
+      <span class="menu-text">Menu</span>
+    </button>
+
+    <a href="index.html" class="topbar__logo">
+      </a>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+<nav class="side-menu" id="side-menu">
+  <div class="menu-list">
+    <a href="all-articles.html" class="menu-item">Articles</a>
+    <a href="all-guidelines.html" class="menu-item">Guidelines</a>
+    <a href="all-videos.html" class="menu-item">Videos</a>
+    <a href="all-tools.html" class="menu-item">Tools</a>
+  </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuTrigger = document.getElementById('menu-open');
+      const sideMenu = document.getElementById('side-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+
+      // 切换菜单
+      menuTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sideMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+      });
+
+      // 点击遮罩收回
+      menuOverlay.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      });
+
+      // 点击菜单项后收回
+      const menuItems = document.querySelectorAll('.menu-item');
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          sideMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+        });
+      });
+    });
+  </script>
+    </div>
+  </header>
+
+  <main class="subpage-content">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <ul class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    
+    <li class="breadcrumb-item active" aria-current="page">
+      All guidelines
+    </li>
+  </ul>
+</nav>
+    <div class="container subpage-container">
+      
+     <section class="resource-row">
+  <h2 class="row-title">All-guidelines</h2>
+  <div class="carousel-full-width">
+    <button class="nav-arrow left-arrow">〈</button>
+    <div class="carousel-track">
+
+        <a href="food-eating doc/guideline1.pdf" class="resource-card">
+        <div class="resource-card__preview">
+          <img src="food-eating img/guideline1.png" alt="Five-a-Day Felix" class="card-image">
+        </div>
+        <div class="resource-card__info">
+          <h3>Five-a-Day Felix</h3>
+        </div>
+      </a>
+
+      <a href="food-eating doc/guideline2.pdf" class="resource-card">
+        <div class="resource-card__preview">
+          <img src="food-eating img/guideline2.png" alt="Selecting Pet Foods" class="card-image">
+        </div>
+        <div class="resource-card__info">
+          <h3>Selecting Pet Foods</h3>
+        </div>
+      </a>
+
+      <a href="food-eating doc/guideline3.pdf" class="resource-card">
+        <div class="resource-card__preview">
+          <img src="food-eating img/guideline3.png" alt="Addressing Behavioral Needs" class="card-image">
+        </div>
+        <div class="resource-card__info">
+          <h3>Addressing Behavioral Needs</h3>
+        </div>
+      </a>
+
+       <a href="behavior signal doc/guideline1.pdf" class="resource-card"><div class="resource-card__preview"><img src="behavior signal img/guideline1.png" class="card-image"></div><div class="resource-card__info"><h3>Reading your cat’s “body language”</h3></div></a>
+            <a href="behavior signal doc/guideline2.pdf" class="resource-card"><div class="resource-card__preview"><img src="behavior signal img/guideline2.png" class="card-image"></div><div class="resource-card__info"><h3>Why do cats wag their tails</h3></div></a>
+            <a href="https://www.fourpawsusa.org/our-stories/publications-guides/how-cats-communicate#:~:text=Ears%3A%20a%20mood%20barometer" class="resource-card"><div class="resource-card__preview"><img src="behavior signal img/guideline3.png" class="card-image"></div><div class="resource-card__info"><h3>How Cats Communicate</h3></div></a>
+            <a href="behavior signal doc/guideline4.pdf" class="resource-card"><div class="resource-card__preview"><img src="behavior signal img/guideline4.png" class="card-image"></div><div class="resource-card__info"><h3>A visual guide to cat body language</h3></div></a>
+            <a href="behavior signal doc/guideline5.pdf" class="resource-card"><div class="resource-card__preview"><img src="behavior signal img/guideline5.png" class="card-image"></div><div class="resource-card__info"><h3>FELINE behavior guidelines</h3></div></a>
+          
+            <a href="first time owner doc/doc1.pdf" class="resource-card">
+        <div class="resource-card__preview">
+          <img src="first time owner img/img1.png" alt="new cat owner checklist" class="card-image">
+        </div>
+        <div class="resource-card__info"><h3>new cat owner checklist</h3></div>
+      </a>
+
+      <a href="health urgency doc/doc1.pdf" class="resource-card">
+        <div class="resource-card__preview">
+          <img src="health urgency img/img4.png" alt="Body Condition Score" class="card-image">
+        </div>
+        <div class="resource-card__info">
+          <h3>Body Condition Score</h3>
+        </div>
+      </a>
+
+      <a href="https://www.nasc.cc/news/emergency-or-wait-cat-urgent-symptoms/#:~:text=Difficulty%20breathing%20%E2%80%93%20If%20your,mouth%20breathing%20signals%20severe%20distress" class="resource-card">
+        <div class="resource-card__preview">
+          <img src="health urgency img/img5.png" alt="The Cat Owners Guide to Urgent Symptoms" class="card-image">
+        </div>
+        <div class="resource-card__info">
+          <h3>The Cat Owners Guide to Urgent Symptoms</h3>
+        </div>
+      </a>
+
+    </div> 
+        <button class="nav-arrow right-arrow">〉</button>
+        </div>
+  </main>
+  <div id="preview-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a id="modal-external-link" href="#" target="_blank">Open in New Window ↗</a>
+        <button class="modal-close" id="close-modal">×</button>
+      </div>
+      <iframe id="preview-frame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. 左右滑动逻辑
+      function setupCarousel(trackId, leftArrowId, rightArrowId) {
+        const track = document.getElementById(trackId);
+        const leftArrow = document.getElementById(leftArrowId);
+        const rightArrow = document.getElementById(rightArrowId);
+
+        if (track && leftArrow && rightArrow) {
+          rightArrow.addEventListener('click', () => {
+            track.scrollBy({ left: 310, behavior: 'smooth' });
+          });
+          leftArrow.addEventListener('click', () => {
+            track.scrollBy({ left: -310, behavior: 'smooth' });
+          });
+        }
+      }
+
+      // 初始化所有滑动轨道
+      setupCarousel('food-art-track', 'food-art-left', 'food-art-right');
+      setupCarousel('food-vid-track', 'food-vid-left', 'food-vid-right');
+      setupCarousel('food-qa-track', 'food-qa-left', 'food-qa-right');
+
+      // 2. 小窗预览逻辑
+      const modal = document.getElementById('preview-modal');
+      const iframe = document.getElementById('preview-frame');
+      const externalLink = document.getElementById('modal-external-link');
+      const closeBtn = document.getElementById('close-modal');
+      const resourceCards = document.querySelectorAll('.resource-card');
+
+      resourceCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          const url = card.getAttribute('href');
+          if (url && (url.startsWith('http') || url.endsWith('.pdf'))) {
+            e.preventDefault();
+            iframe.src = url;
+            externalLink.href = url;
+            modal.style.display = 'flex';
+          }
+        });
+      });
+
+      const closeModal = () => {
+        modal.style.display = 'none';
+        iframe.src = '';
+      };
+
+      closeBtn.onclick = closeModal;
+      modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+    });
+  </script>
+</body>
+</html>
