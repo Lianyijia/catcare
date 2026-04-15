@@ -67,6 +67,17 @@ body {
   margin: 0 auto;
 }
 
+/* 🌟 1. 正常状态 (一直在页面上显示的状态) */
+html, body, a, button, .resource-card, .folder-card {
+  cursor: url('img/cursor1.png') 16 16, auto !important;
+}
+
+/* 🌟 2. 点击/长按瞬间的状态 (Active 状态) */
+/* 当你在页面任何地方按下鼠标左键不松开时，会触发这个变化 */
+html:active, body:active, a:active, button:active {
+  cursor: url('img/cursor2.png') 16 16, auto !important;
+}
+
 /* ========== Background Design ========== */
 body {
   background-color: #f8f6f7;
@@ -87,7 +98,24 @@ body {
   width: 100%;
   height: var(--topbar-height);
   background: var(--topbar-bg);
+
+  /* 🌟 关键修改：开启吸顶模式 */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  /* 🌟 确保它永远在所有内容的最上层 */
+  z-index: 9999; 
+
+  /* 保持你原本的其他设计 */
+  height: var(--topbar-height);
+  background-color: var(--topbar-bg);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease; /* 让可能存在的颜色变化更平滑 */
 }
+
 
 .topbar__inner {
   position: relative;
@@ -1288,4 +1316,57 @@ body.subpage-flat {
   font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+/* ========== 状态栏 (Breadcrumbs) 样式 ========== */
+.breadcrumb-nav {
+  padding: 15px var(--page-padding);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.breadcrumb-list {
+  display: flex;
+  list-style: none;
+  background: white; /* 纯白底色 */
+  padding: 12px 25px;
+  border-radius: 50px; /* 胶囊状圆角 */
+  border: 2px solid #ffe3e6; /* 淡粉色边框 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  gap: 10px;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  font-family: "ADLaM Display", sans-serif;
+  font-size: 0.95rem;
+  color: #ff8a98; /* 粉色文字 */
+  display: flex;
+  align-items: center;
+}
+
+/* 链接样式 */
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #ff8a98;
+  transition: opacity 0.3s;
+}
+
+.breadcrumb-item a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* 分隔符：在每一项后面加一个猫爪或箭头 */
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">"; 
+  margin-right: 10px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+/* 当前所在位置的状态 */
+.breadcrumb-item.active {
+  color: #5f5a5d; /* 灰色，表示当前页不可点 */
+  pointer-events: none;
 }
